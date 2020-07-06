@@ -31,7 +31,9 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users*").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin();
+                .formLogin()
+                .and()
+                .oauth2Login();
     }
 
     @Bean

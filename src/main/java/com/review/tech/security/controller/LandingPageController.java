@@ -4,19 +4,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.security.RolesAllowed;
-
 @RestController
-public class LandingPageController {
+public class LandingPageController{
 
     @RolesAllowed("USER")
-    @GetMapping("/users")
-    public String getUserLandingPage() {
-        return "Welcome user";
+    @GetMapping("/**")
+    public String getUser()
+    {
+        return "Welcome User";
     }
 
-    @RolesAllowed("ADMIN")
-    @GetMapping("/admins")
-    public String getAdminLandingPage() {
-        return "Welcome admin";
+    @RolesAllowed({"USER","ADMIN"})
+    @GetMapping("/admin")
+    public String getAdmin()
+    {
+        return "Welcome Admin";
+    }
+
+    @GetMapping("/*")
+    public String getGithub()
+    {
+        return "Welcome Github user!";
     }
 }
