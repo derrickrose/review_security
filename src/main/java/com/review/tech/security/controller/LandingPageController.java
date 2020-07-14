@@ -77,4 +77,6 @@ public class LandingPageController {
         }
         return usernameInfo;
     }
+
+    //TODO use it with google
 }
